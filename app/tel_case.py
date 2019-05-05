@@ -82,10 +82,9 @@ def stop(message):
 def handle_text_message(message):
     base = data_base.get_data("Users", "id", "position",
                               id=message.chat.id)
-    num = -1 if base == -1 else 0
-    if num == -1:
+    if base == -1:
         return
-    number = base[num][1]
+    number = base[0][1]
     number = usefull_functions.get_stack(number)
     try:
         func = {2: tel_register.surname, 3: tel_register.choosing_school,
@@ -103,10 +102,9 @@ def handle_text_message(message):
 def input_keyboard(call):
     base = data_base.get_data("Users", "position",
                               id=call.message.chat.id)
-    num = -1 if base == -1 else 0
-    if num == -1:
+    if base == -1:
         return
-    number = base[num][0]
+    number = base[0][0]
     number = usefull_functions.get_stack(number)
     try:
         func = {1: tel_register.agreement, 4: tel_register.choosing_faculty,

@@ -69,6 +69,7 @@ def next_exit(call):
                                 game_id='NULL', position=number)
         next_func = {23: tel_delete}
         ans = {23: "delete_yes"}
+        number = usefull_functions.get_stack(number)
         try:
             if ans[number] is None:
                 next_func[number](call.message)
